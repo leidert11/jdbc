@@ -1,5 +1,5 @@
 com\nombre\Vista\Jdbc.class
-com\nombre\Controlador\ControladorUsuario.class
+com\nombre\Modelo\Persistencia\Operaciones.class
 com\nombre\Modelo\Clases\Usuario.class
 com\nombre\Modelo\Persistencia\ConexionBD.class
-com\nombre\Modelo\Persistencia\Operaciones.class
+com\nombre\Controlador\ControladorUsuario.class
