@@ -1,5 +1,5 @@
 
-package com.nombre.jdbc.Modelo.Persistencia;
+package com.nombre.Modelo.Persistencia;
 
 import java.sql.*;
 

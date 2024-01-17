@@ -1,7 +1,7 @@
-package com.nombre.jdbc.Vista;
+package com.nombre.Vista;
 
-import com.nombre.jdbc.Controlador.ControladorUsuario;
-import com.nombre.jdbc.Modelo.Clases.Usuario;
+import com.nombre.Controlador.ControladorUsuario;
+import com.nombre.Modelo.Clases.Usuario;
 import java.sql.*;
 import java.util.List;
 

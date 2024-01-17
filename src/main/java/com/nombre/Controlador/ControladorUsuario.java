@@ -1,9 +1,9 @@
 
-package com.nombre.jdbc.Controlador;
+package com.nombre.Controlador;
 
-import com.nombre.jdbc.Modelo.Clases.Usuario;
-import com.nombre.jdbc.Modelo.Persistencia.ConexionBD;
-import com.nombre.jdbc.Modelo.Persistencia.Operaciones;
+import com.nombre.Modelo.Clases.Usuario;
+import com.nombre.Modelo.Persistencia.ConexionBD;
+import com.nombre.Modelo.Persistencia.Operaciones;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

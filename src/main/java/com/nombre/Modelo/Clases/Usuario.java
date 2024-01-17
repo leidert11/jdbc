@@ -1,5 +1,5 @@
 
-package com.nombre.jdbc.Modelo.Clases;
+package com.nombre.Modelo.Clases;
 
 public class Usuario {
 
