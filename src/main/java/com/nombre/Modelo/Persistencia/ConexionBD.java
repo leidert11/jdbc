@@ -13,7 +13,7 @@ public abstract class ConexionBD {
 
         url = "jdbc:mysql://localhost:3306/my_db";
         user = "root";
-        password = "campus2024";        
+        password = "";        
         return getConnection(url, user, password);
     }
     

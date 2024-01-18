@@ -9,13 +9,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ControladorUsuario {
-
-    public static boolean registrarUsuario(String nombre) throws SQLException {
-        Usuario u = new Usuario(nombre);
+    private static int generarIdUsuarios() throws SQLException {
         Operaciones.setConnection(ConexionBD.MySQLConnection());
-        String sentencia = "INSERT INTO users(name) VALUES (?);";
+        String sentencia = "SELECT MAX(idusers) FROM users;";
         PreparedStatement ps = Operaciones.getConnection().prepareStatement(sentencia);
-        ps.setString(1, u.getName());
+        ResultSet rs = Operaciones.consultar_BD(ps);
+    
+        int maxId = 0;
+    
+        if (rs.next()) {
+            maxId = rs.getInt(1);
+        }
+    
+        Operaciones.cerrarConexion();
+    
+        return maxId + 1;
+    }
+    
+    public static boolean registrarUsuario(String nombre) throws SQLException {
+        int nuevoId = generarIdUsuarios();
+        Usuario u = new Usuario(nuevoId, nombre);
+        Operaciones.setConnection(ConexionBD.MySQLConnection());
+        String sentencia = "INSERT INTO users(idusers, name) VALUES (?, ?);";
+        PreparedStatement ps = Operaciones.getConnection().prepareStatement(sentencia);
+        ps.setInt(1, u.getIdusers());
+        ps.setString(2, u.getName());
+    
         if (Operaciones.setAutoCommitBD(false)) {
             if (Operaciones.insertar_actualizar_borrar_BD(ps) > 0) {
                 Operaciones.commitBD();
@@ -31,6 +50,7 @@ public abstract class ControladorUsuario {
             return false;
         }
     }
+    
 
     public static boolean actualizarUsuario(int id, String nombre) throws SQLException {
         Usuario u = new Usuario(id, nombre);

@@ -7,7 +7,8 @@ import java.util.List;
 
 public class Jdbc {
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException ,ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
         System.out.println(ControladorUsuario.registrarUsuario("Pepe"));
 
         List<Usuario> users = ControladorUsuario.ConsultarUsuario("Pepe");
